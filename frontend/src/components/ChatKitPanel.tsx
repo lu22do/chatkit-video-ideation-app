@@ -16,6 +16,11 @@ export function ChatKitPanel() {
       // Start a new conversation turn with the brainstorm topic
       await chatkit.sendUserMessage({ text: `Let's develop the idea: ${topic}` });
     }
+    
+    if (event.type === "talkingPoint.delete") {
+      const { id } = event.payload;
+      console.log("Deleted talking point:", id);
+    }
   };
 
   const options: ChatKitOptions = {
